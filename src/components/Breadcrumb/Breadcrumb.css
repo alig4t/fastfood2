@@ -1,0 +1,13 @@
+
+.section-title{
+    font-family: 'IRANSans-web';
+    font-weight: bold !important;
+    font-size: 30px;
+}
+
+@media (max-width: 992px) { 
+    .head-products {
+        margin-top: 59px;
+        padding: 40px;
+    }
+ }

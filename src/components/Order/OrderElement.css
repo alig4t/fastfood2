@@ -1,0 +1,54 @@
+.form-control-cart-custom {
+    border-radius: 20px !important;
+    margin-bottom: 10px !important;
+    border-width: 2px !important;
+    line-height: 24px !important;
+    font-size: 14px !important;
+    padding: 6px 14px !important;
+}
+
+.cart-update-btn{
+    font-size: 13px !important;
+    line-height: 26px;
+    background-color: #28a745 !important;
+}
+
+.textarea-cart-custom{
+    border-radius: 18px !important;
+    color: #333 !important;
+}
+
+.factor-custom{
+    padding: 10px;
+    background-color: #fafafa;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+.factor-custom .price-factor{
+    font-weight: bold !important;
+}
+.factor-custom.sum-factor{
+    background-color: #cbffc6;
+    color: #0ebd37;
+}
+.type-cart-label{
+    font-size: 13px;
+    font-weight: bold;
+}
+.address-item{
+    border-bottom: 1px solid #f5ecec;
+    padding: 8px;
+}
+.address-delete-btn{
+    font-size: 11px;
+    color: #ca2929;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 5px;
+    transition: all ease 0.1s;
+    border-radius: 5px;
+}
+.address-delete-btn:hover{
+    color: #b11818;
+    box-shadow: 0 0 2px 2px #ffcaca;
+}

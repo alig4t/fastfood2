@@ -1,0 +1,6 @@
+.msg-form-error{
+    display: block;
+    color: rgb(220, 64, 64);
+    font-size: 14px;
+    font-weight: 900;
+}

@@ -1,0 +1,428 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  font-family: IRANSansMonoSpacedNum;
+  src: url(../public/assets/fonts/IRANSansMonoSpacedNum.woff) format('woff');
+  font-weight: 700
+}
+
+
+
+@font-face {
+  font-family: 'IRANSans-web';
+  src: url('../public/assets/fonts/IRANSansWeb(FaNum)_Bold.eot?#') format('eot'),
+    /* IE6–8 */
+    url('../public/assets/fonts/IRANSansWeb(FaNum)_Bold.woff2') format('woff2'),
+    /* Chrome36+, Opera24+*/
+    url('../public/assets/fonts/IRANSansWeb(FaNum)_Bold.woff') format('woff');
+  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'IRANSans-web';
+  src: url('../public/assets/fonts/IRANSansWeb(FaNum)_Light.eot?#') format('eot'),
+    /* IE6–8 */
+    url('../public/assets/fonts/IRANSansWeb(FaNum)_Light.woff2') format('woff2'),
+    /* Chrome36+, Opera24+*/
+    url('../public/assets/fonts/IRANSansWeb(FaNum)_Light.woff') format('woff');
+  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'IRANSans-web';
+  src: url('../public/assets/fonts/IRANSansWeb(FaNum).eot?#') format('eot'),
+    /* IE6–8 */
+    url('../public/assets/fonts/IRANSansWeb(FaNum).woff2') format('woff2'),
+    /* Chrome36+, Opera24+*/
+    url('../public/assets/fonts/IRANSansWeb(FaNum).woff') format('woff');
+  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  font-weight: normal;
+}
+
+
+body {
+  direction: rtl;
+  /* font-family: IRANSansMonoSpacedNum !important; */
+  position: relative;
+  font-family: 'IRANSans-web';
+  font-weight: normal;
+}
+
+a {
+  font-family: 'IRANSans-web' !important;
+  text-decoration: none !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+button,
+span {
+  font-family: 'IRANSans-web';
+}
+
+.bg-none {
+  background: none !important;
+}
+
+.bg-black {
+  background: #000 !important;
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+
+.msg-container {
+  /* background-color: black;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 51; */
+}
+
+.nav-section {
+  background: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 50;
+}
+
+.vertical-centered {
+  height: 50px;
+  vertical-align: middle;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.navbar-brand img {
+  max-width: 200px;
+}
+
+.logo {
+  display: block;
+  height: 80px;
+  background: url('../public/assets/img/logo.png') no-repeat 94%;
+  background-size: auto 100%;
+  /* background-position: right; */
+  /* text-align: right; */
+}
+
+#topLogo {
+  /* position: fixed; */
+  /* top: 13px; */
+  /* width: 100px; */
+  height: 85px;
+  position: relative;
+  top: -48px;
+}
+
+.brand-custom {
+  font-weight: bolder;
+  color: rgb(235, 199, 151) !important;
+  transition: all ease 0.2s;
+}
+
+.brand-custom:hover {
+  font-weight: bolder;
+  color: rgb(235, 221, 201) !important;
+}
+
+.slider-custom {
+  margin-top: -56px;
+}
+
+.carousel-item img {
+  /* min-height: 500px; */
+}
+
+@media (max-width: 576px) {
+  .carousel-item img {
+    width: auto !important;
+    height: 400px;
+    object-fit: cover;
+  }
+
+
+}
+
+.nav-custom {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.navbar-nav a {
+  font-size: 14px;
+  position: relative;
+  margin-left: 25px;
+  padding: 20px 5px;
+  text-align: center;
+
+}
+
+.nav-custom li {
+  font-size: 14px;
+  position: relative;
+  margin-left: 25px;
+  padding: 20px 5px;
+  text-align: center;
+}
+
+.nav-custom a {
+  font-weight: bolder !important;
+
+}
+
+.navbar-nav a::before {
+  position: absolute;
+  width: 1px;
+  height: 50%;
+  content: '';
+  right: 0;
+  border-right: 1px dashed rgba(255, 255, 255, 0.2);
+  top: 0;
+}
+
+.navbar-nav a::after {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  content: '';
+  right: -6px;
+  background-color: #fff;
+  top: calc(50% - 6px);
+}
+
+@media (max-width: 992px) {
+  .nav-custom li {
+    background-color: rgba(85, 164, 78, 0.645);
+    width: 70%;
+    transition: all ease 0.1s;
+    margin: 5px auto;
+    padding: 8px;
+    border-radius: 4px;
+  }
+
+  .nav-custom li:hover {
+    background-color: rgba(85, 164, 78, 0.914);
+
+  }
+
+  .nav-custom li::before {
+    display: none !important;
+  }
+
+  .nav-custom li::after {
+    display: none !important;
+
+  }
+
+}
+
+.nav-custom li:hover>a {
+  color: antiquewhite !important;
+}
+
+.nav-custom li a {
+  position: relative;
+  font-weight: bold;
+  color: #fff !important;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+  text-align: center;
+}
+
+.basket-container {
+  position: relative;
+}
+
+
+.main-box {
+  padding-top: 50px;
+  padding-bottom: 100px;
+  background: url('../public/assets/img/bg8.png') repeat 100%;
+  position: relative;
+ 
+}
+
+.main-box::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 2px;
+  margin: auto;
+  background-color: #5c2d91;
+}
+
+.main-box a {
+  font-size: 13px;
+  line-height: 26px;
+  background-color: #28a745 !important;
+}
+
+.main-box h2 {
+  margin: 60px 0;
+  font-weight: bolder;
+}
+
+.footer {
+  background-color: #1e2024;
+}
+
+.social-links {
+  padding: 5px 0;
+}
+
+.social-links svg {
+  margin: 10px;
+}
+
+.cpright {
+  padding: 10px 0;
+  border-top: 1px solid #4b4b4d !important;
+  font-size: 13px;
+}
+
+
+.custom-bread {
+  background-color: rgb(255, 255, 255);
+  color: #777;
+  border: 1px solid #f5f5f5;
+  padding: 10px 15px;
+  font-weight: bolder;
+}
+
+.head-products {
+  background: url('../public/assets/img/breadcrumb-bg.jpg');
+  margin-top: 76px;
+  padding: 40px;
+}
+
+.list-menu {
+  padding: 5px;
+}
+
+.list-menu a {
+  background-color: #1e2024;
+  color: #fff;
+  border-radius: 4px;
+  margin: 0 5px;
+}
+
+.box-list-menu {
+  position: relative;
+  padding-top: 10px;
+}
+
+.box-list-menu::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 6px;
+  width: 0;
+  height: 63px;
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: -10px 0px 13px 3px #c8c8c8;
+}
+
+.box-list-menu::before {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: 6px;
+  width: 0;
+  height: 63px;
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: 10px 0px 13px 3px #c8c8c8;
+}
+
+.submit-cart {
+  padding: 8px 15px;
+  color: #fff;
+  background-color: #5c2d91;
+  -webkit-box-shadow: 0 4px 6px 2px rgba(92, 45, 145, 0.2);
+  -moz-box-shadow: 0 4px 6px 2px rgba(92, 45, 145, 0.2);
+  box-shadow: 0 4px 6px 2px rgba(92, 45, 145, 0.2);
+  border: 1px solid #5c2d91;
+
+}
+
+.submit-cart:hover {
+  color: #5c2d91;
+  font-weight: bolder;
+  border: 1px solid #5c2d91;
+}
+
+#product-box {
+  background-color: #fdfdfd;
+  box-shadow: inset 0 10px 10px #fafafa;
+  -webkit-box-shadow: inset 0 10px 10px #fafafa;
+  -moz-box-shadow: inset 0 10px 10px #fafafa;
+  padding: 40px 5px;
+}
+
+.card-title {
+  font-size: 16px;
+}
+
+.card-text {
+  font-size: 14px;
+}
+
+.card-text span {
+  color: #ed0c6e;
+}
+
+.custom-card {
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.02);
+  -moz-box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.02);
+  border: 0 none;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+}

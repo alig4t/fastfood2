@@ -1,0 +1,36 @@
+
+.owl-carousel .owl-item {
+    min-height: 1px;
+    float: right;
+    -webkit-backface-visibility: hidden;
+    -webkit-touch-callout: none;
+    
+    font-size: 12px;
+    line-height: 30px;
+    text-align: center;
+    background-color: #333;
+    border: 2px solid #c8c8c8;
+    border-radius: 20px;
+    color:#c8c8c8;
+    transition: all ease 0.1s;
+    cursor: pointer;
+}
+.owl-carousel .owl-item a{
+    color:#c8c8c8;
+
+}
+.owl-carousel .owl-item:hover {
+    background-color: #c8c8c8;
+    color: #333;
+    border-color: #333;
+}
+.owl-carousel .owl-item:hover a{
+    color: #333;
+}
+.owl-carousel .owl-stage{
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+.owl-theme .owl-nav{
+    margin-top: 0;
+}

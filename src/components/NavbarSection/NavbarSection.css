@@ -1,0 +1,105 @@
+.navbar-toggler-icon {
+    content: "sss";
+}
+
+.bar-icon-container {
+    /* border: 1px solid #fff !important; */
+    font-size: 30px;
+    padding: 0 6px;
+    margin-left: 5px;
+}
+
+@media (min-width: 992px) {
+    .navbar-nav a {
+        color: #fff;
+        transition: all ease 0.2s;
+    }
+
+    .navbar-nav a:hover {
+        color: rgb(230, 219, 205);
+    }
+}
+   
+.btn-call{
+    background-color: #45c43c;
+    color: #fff;
+    width: 200px;
+    border-radius: 4px;
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 13px !important;
+    font-family: IRANSansMonoSpacedNum !important;
+}
+.version-type{
+    font-family: IRANSansMonoSpacedNum !important;
+    margin-top: 15px;
+    font-size: 11px;
+    color: #919191;
+}
+
+@media (max-width: 992px) { 
+    .offcanvas.offcanvas-end{
+        max-width: 75%;
+        background: #fff url("../../../public/assets/img/bg8.png") repeat;
+    }
+    
+    .offcanvas.offcanvas-end a{
+        border-bottom: 1px solid #e8e8e8;
+        font-weight: bold;
+        margin: 0;
+    }
+   .offcanvas-end .offcanvas-body{
+    padding: 0;
+   }
+   .offcanvas-end .navbar-nav{
+    padding-right: 0 !important;
+   }
+ }
+
+
+
+.basket-icon {
+    font-size: 24px;
+    background-color: #fff;
+    color: #5c2d91;
+    border-radius: 100%;
+    padding: 6px 12px 14px 12px;
+    position: relative;
+}
+
+.sum-basket {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 21px;
+    height: 21px;
+    border-radius: 100%;
+    background-color: #5c2d91;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: center;
+    z-index: 2;
+    font-weight: 600;
+}
+
+.sum-basket.active {
+    animation-name: flash;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@keyframes flash {
+
+    0%,
+    50%,
+    100% {
+        opacity: 1;
+    }
+
+    25%,
+    75% {
+        opacity: 0;
+    }
+}

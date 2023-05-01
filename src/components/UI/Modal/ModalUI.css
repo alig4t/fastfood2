@@ -1,0 +1,12 @@
+
+#popupPrice{
+    color: #00be0b;
+    font-size: 35px;
+}
+.text-sm{
+    font-size: 13px;
+}
+
+@media (max-width: 992px) {
+     
+ }

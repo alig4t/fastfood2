@@ -1,0 +1,49 @@
+.all-branches {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+ul.branches {
+    display: block;
+    margin: 0;
+    list-style: none !important;
+    clear: both;
+    padding: 0;
+}
+ul.branches > li{
+    float: right;
+    padding: 10px;
+}
+ul.branches > li .media-body {
+    padding-right: 20px;
+}
+.media-middle {
+    vertical-align: middle;
+}
+.media-body, .media-left, .media-right {
+    display: table-cell;
+    vertical-align: top;
+}
+.media-right, .media>.pull-right {
+    padding-left: initial;
+    padding-right: 10px;
+}
+.media-object {
+    display: block;
+}
+ul.branches > li .media-heading {
+    margin-bottom: 10px;
+}
+.bold {
+    font-weight: bold;
+}
+.media-heading {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+ul.branches > li .media-body p {
+    margin: 0;
+    font-size: 14px;
+}
+.green-text {
+    color: #2bb673;
+}

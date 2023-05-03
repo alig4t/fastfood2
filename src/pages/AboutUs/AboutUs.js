@@ -2,8 +2,6 @@ import React,{useEffect} from "react";
 
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import About from "../../components/About/About";
-import Footer from "../../components/Footer/Footer";
-
 
 const AboutUs = (props) => {
     useEffect(() => {
@@ -15,7 +13,6 @@ const AboutUs = (props) => {
         <>
             <Breadcrumb title='درباره ما' />
             <About />
-            <Footer />
         </>
     )
 }

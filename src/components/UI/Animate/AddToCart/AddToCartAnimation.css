@@ -1,0 +1,69 @@
+/* @-webkit-keyframes fly {
+  0% {
+    top: 0%;
+    left: 0%;
+  }
+
+  25% {
+    top: -25%;
+    left: -20%;
+  }
+
+  50% {
+    top: -50%;
+    left: -40%;
+  }
+
+  75% {
+    top: -100%;
+    left: -80%;
+  }
+
+  99% {
+    top: -150%;
+    left: -120%;
+  }
+
+  100% {
+    opacity: 0;
+  }
+} */
+
+@keyframes fly {
+  0% {
+    bottom: 0;
+    left: 0;
+    opacity: 0.5;
+  }
+
+  25% {
+    top: -20%;
+    left: -15%;
+    opacity: 0.5;
+  }
+
+  50% {
+    top: -40%;
+    left: -30%;
+    opacity: 0.5;
+  }
+
+  75% {
+    top: -80%;
+    left: -60%;
+    opacity: 0.5;
+  }
+
+  100% {
+    top: -160%;
+    left: -95%;
+    opacity: 0;
+  }
+}
+
+.fly-item-bg {
+  /* -webkit-animation: fly 5s linear 0s infinite;
+      -moz-animation: fly 5s linear 0s infinite;
+      -0-animation: fly 5s linear 0s infinite; */
+  animation: fly 1.5s linear 0s;
+}

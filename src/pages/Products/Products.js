@@ -5,7 +5,6 @@ import SpinnerLoading from "../../components/UI/SpinnerLoading/SpinnerLoading";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import MenuNav from "../../components/MenuNav/MenuNav";
 import ProductCards from "../../components/ProductCards/ProductCards";
-import Footer from "../../components/Footer/Footer"
 // import list_products_json from './src/list-products.json'
 
 
@@ -85,7 +84,6 @@ const Products = (props) => {
             {(catListState.length > 0) ? <MenuNav cats={catListState} /> : ''}
             {/* {(productListState.length > 0) ? <ProductCards productList={productListState} /> : ''} */}
             <ProductCards productList={productListState} />
-            <Footer />
         </>
     )
 }

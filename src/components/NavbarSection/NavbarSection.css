@@ -1,15 +1,11 @@
-.navbar-toggler-icon {
-    content: "sss";
-}
-
 .bar-icon-container {
-    /* border: 1px solid #fff !important; */
     font-size: 30px;
     padding: 0 6px;
     margin-left: 5px;
 }
 
 @media (min-width: 992px) {
+    
     .navbar-nav a {
         color: #fff;
         transition: all ease 0.2s;
@@ -19,8 +15,8 @@
         color: rgb(230, 219, 205);
     }
 }
-   
-.btn-call{
+
+.btn-call {
     background-color: #45c43c;
     color: #fff;
     width: 200px;
@@ -30,64 +26,70 @@
     font-size: 13px !important;
     font-family: IRANSansMonoSpacedNum !important;
 }
-.version-type{
+
+.version-type {
     font-family: IRANSansMonoSpacedNum !important;
     margin-top: 15px;
     font-size: 11px;
     color: #919191;
 }
 
-@media (max-width: 992px) { 
-    .offcanvas.offcanvas-end{
+@media (max-width: 992px) {
+    .offcanvas.offcanvas-end {
         max-width: 75%;
         background: #fff url("../../../public/assets/img/bg8.png") repeat;
     }
-    
-    .offcanvas.offcanvas-end a{
+    .offcanvas.offcanvas-end a {
         border-bottom: 1px solid #e8e8e8;
         font-weight: bold;
         margin: 0;
     }
-   .offcanvas-end .offcanvas-body{
-    padding: 0;
-   }
-   .offcanvas-end .navbar-nav{
-    padding-right: 0 !important;
-   }
- }
-
-
+    .offcanvas.offcanvas-end a:hover {
+        color: #45c43c;
+    }
+    .offcanvas-end .offcanvas-body {
+        padding: 0;
+    }
+    .offcanvas-end .navbar-nav {
+        padding-right: 0 !important;
+    }
+    .navbar-nav{
+        padding-left: 0 !important;
+    }
+}
 
 .basket-icon {
-    font-size: 24px;
+    font-size: 22px !important;
     background-color: #fff;
     color: #5c2d91;
     border-radius: 100%;
-    padding: 6px 12px 14px 12px;
+    /* border: 2px #5c2d91 dashed; */
+    padding:7px 11px 10px 10px;
     position: relative;
+    transition: all linear 0.2s;
 }
 
 .sum-basket {
     position: absolute;
-    top: 2px;
-    right: 2px;
-    width: 21px;
-    height: 21px;
+    top: 4px;
+    right: 4px;
+    width: 18px;
+    height: 18px;
     border-radius: 100%;
     background-color: #5c2d91;
     line-height: 20px;
-    font-size: 12px;
+    font-size: 11px;
     text-align: center;
     z-index: 2;
-    font-weight: 600;
 }
 
 .sum-basket.active {
     animation-name: flash;
-    -webkit-animation-duration: 2s;
-    animation-duration: 2s;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
+    /* background-color: #30a95a; */
 }
 
 @keyframes flash {
@@ -95,11 +97,11 @@
     0%,
     50%,
     100% {
-        opacity: 1;
+        opacity: 0;
     }
 
     25%,
     75% {
-        opacity: 0;
+        opacity: 1;
     }
 }

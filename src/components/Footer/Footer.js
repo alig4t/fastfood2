@@ -1,7 +1,6 @@
 import React from "react";
 
 import { SiInstagram } from 'react-icons/si';
-// import { BsLinkedin } from 'react-icons/bs';
 import { SiLinkedin } from 'react-icons/si';
 import { ImGoogle } from 'react-icons/im';
 

@@ -91,7 +91,7 @@ const OrderElement = (props) => {
                             کد تخفیف
                         </div>
                         <div className="col-lg-9">
-                            <div className="row">
+                            
 
                                 <Row className="align-items-center">
                                     <Col sm={4} xs={8} className="my-1">
@@ -111,7 +111,7 @@ const OrderElement = (props) => {
                                 <div className="col-lg-12 px-4 py-2">
                                 </div>
 
-                            </div>
+                            
                         </div>
                     </div>
 

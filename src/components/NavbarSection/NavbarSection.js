@@ -13,6 +13,7 @@ import ModalUI from '../UI/Modal/ModalUI';
 import './NavbarSection.css'
 
 import { BsBasketFill } from 'react-icons/bs';
+import { IoCart } from 'react-icons/io5';
 
 
 const NavbarSection = (props) => {
@@ -35,7 +36,7 @@ const NavbarSection = (props) => {
 
   useEffect(() => {
     console.log("NavBar..");
-  })
+  },[])
 
   /*********************  Modal Login Form  *********************/
   const [showModalLoginForm, setShowModalLoginForm] = useState(props.modalLogin)
@@ -54,7 +55,7 @@ const NavbarSection = (props) => {
     setBasketActiveClass(true);
     setTimeout(() => {
       setBasketActiveClass(false)
-    }, 2500);
+    }, 1000);
   };
   useEffect(() => {
     handleToggleActive()
@@ -79,10 +80,10 @@ const NavbarSection = (props) => {
             <Navbar.Toggle onClick={openNavCanvas} aria-controls={`offcanvasNavbar-expand-${expand}`} className="bar-icon-container" />
 
             <Button className="d-block d-lg-none btn basket-container border-0 bg-none py-0"
-              type="button" onClick={handleShowCart} style={{ marginLeft: '6px' }}>
+              type="button" onClick={handleShowCart} style={{ margin: '0 6px' }}>
               <span className={`sum-basket text-white ${basketActiveClass ? 'active' : ''}`}>{qtyAll}</span>
               <span className="material-icons basket-icon">
-                <BsBasketFill />
+                <IoCart />
               </span>
             </Button>
 
@@ -102,7 +103,7 @@ const NavbarSection = (props) => {
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              <Nav className="justify-content-end flex-grow-1 pe-3">
+              <Nav className="justify-content-end flex-grow-1 pe-3 ml-4">
 
                 <Link className="nav-link" to="/Products" onClick={closeNavCanvas}>سفارش اینترنتی غذا</Link>
                 <Link className="nav-link" to="/branches" onClick={closeNavCanvas}>شعبه ها</Link>
@@ -120,7 +121,7 @@ const NavbarSection = (props) => {
                   onClick={handleShowCart} style={{ marginLeft: '6px' }}>
                   <span className={`sum-basket text-white ${basketActiveClass ? 'active' : ''}`}>{qtyAll}</span>
                   <span className="material-icons basket-icon">
-                    <BsBasketFill />
+                    <IoCart />
                   </span>
                 </Button>
               </Nav>

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-import NavbarSection from "../NavbarSection/NavbarSection";
 import { CartProvider } from "../../context/cartContext";
+
+import Footer from "../Footer/Footer"
+import NavbarSection from "../NavbarSection/NavbarSection";
 
 const Layout = (props) => {
     let cart = [];
@@ -13,6 +15,7 @@ const Layout = (props) => {
         <CartProvider>
             <NavbarSection />
             {props.children}
+            <Footer />
         </CartProvider>
     )
 }

@@ -179,16 +179,18 @@ span {
 }
 
 .nav-custom {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.89);
 }
 
+.navbar-nav{
+  padding-left: 30px;
+}
 .navbar-nav a {
-  font-size: 14px;
+  font-size: 15px;
   position: relative;
   margin-left: 25px;
   padding: 20px 5px;
   text-align: center;
-
 }
 
 .nav-custom li {

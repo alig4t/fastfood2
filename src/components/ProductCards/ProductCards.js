@@ -5,11 +5,12 @@ import PlaceHolderUI from '../UI/PlaceHolderUI/PlaceHolderUI';
 import { TbSquareRoundedPlusFilled } from 'react-icons/tb';
 import './ProductCards.css'
 
-import AddToCart from '../UI/Animate/AddToCart/AddToCart';
+import AddToCartAnimation from '../UI/Animate/AddToCart/AddToCartAnimation';
 
 const ProductCards = (props) => {
 
-    const [animate,setAnimate] = useState(false);
+    /*********************  Fly To Basket Animation  *********************/
+    const [showAnimate, setShowAnimate] = useState(-1);
 
     /*********************  Cart Data  *********************/
     const [cartItems, setCartItems] = useContext(CartContext)
@@ -33,7 +34,8 @@ const ProductCards = (props) => {
         }
     }
 
-    const addToBasket = (item) => {
+    const addToBasket = (item, index) => {
+
         const newBasket = [...cartItems];
         let indexProductDuplicated = -1;
         for (let i = 0; i < cartItems.length; i++) {
@@ -51,7 +53,16 @@ const ProductCards = (props) => {
                 return [...prevState, { ...item, qty: 1 }]
             })
         }
-        setAnimate(true);
+
+        if(showAnimate == index){
+            setShowAnimate(-1);
+            setTimeout(()=>{
+                setShowAnimate(index);
+            },100)
+        }else{
+            setShowAnimate(index);
+        }
+
     }
 
 
@@ -95,13 +106,14 @@ const ProductCards = (props) => {
                     <div className="card shadow custom-card">
                         <img className="card-img-top position-relative" src={`./assets/img/products/${item.imgPath}`}
                             alt="Card image cap" onClick={() => productModalHandler(item)} />
-                            <AddToCart img={`./assets/img/products/${item.imgPath}`} />
+                           <AddToCartAnimation show={index==showAnimate ? true : false} img={`./assets/img/products/${item.imgPath}`} />
+                            
                         <div className="card-body text-center">
                             <h5 className="card-title">{item.title}</h5>
-                            
+
                             <p className="card-text mb-0"><span>{(item.price * (100 - item.offPercent)) / 100}</span> تومان</p>
                             {item.offPercent > 0 ? <p className="card-text"><span><del>{item.price}</del></span></p> : <p className="card-text"></p>}
-                            <a onClick={() => addToBasket(item)}>
+                            <a onClick={() => addToBasket(item, index)}>
                                 <span className="material-icons add-basket-icon">
                                     <TbSquareRoundedPlusFilled />
                                 </span>

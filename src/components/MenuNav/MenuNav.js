@@ -47,7 +47,7 @@ const MenuNav = (props) => {
                     </OwlCarousel >
                 </div>
 
-                <div className="col-lg-3 text-center mt-3">
+                <div className="col-lg-3 text-center my-3">
                     <Link className="btn submit-cart" to="/cart">نهایی کردن سفارش</Link>
                 </div>
             </div>

@@ -6,7 +6,6 @@ import About from "../../components/About/About";
 const AboutUs = (props) => {
     useEffect(() => {
         document.title = process.env.REACT_APP_BASE_TITLE + " | " + props.title;
-        console.log('درباره ما');
       },[]);
 
     return (

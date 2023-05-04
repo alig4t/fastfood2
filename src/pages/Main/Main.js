@@ -7,7 +7,6 @@ import Jumbotron from "../../components/Jumbotron/Jumbotron";
 
 const Main = () => {
     useEffect(() => {
-        console.log(document.title);
         document.title = process.env.REACT_APP_BASE_TITLE;
       },[]);
 

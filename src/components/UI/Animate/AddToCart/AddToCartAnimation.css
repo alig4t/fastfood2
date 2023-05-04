@@ -1,33 +1,34 @@
-/* @-webkit-keyframes fly {
+@-webkit-keyframes fly {
   0% {
-    top: 0%;
-    left: 0%;
+    bottom: 0;
+    left: 0;
+    opacity: 0.5;
   }
 
   25% {
-    top: -25%;
-    left: -20%;
+    top: -20%;
+    left: -15%;
+    opacity: 0.5;
   }
 
   50% {
-    top: -50%;
-    left: -40%;
+    top: -40%;
+    left: -30%;
+    opacity: 0.5;
   }
 
   75% {
-    top: -100%;
-    left: -80%;
-  }
-
-  99% {
-    top: -150%;
-    left: -120%;
+    top: -80%;
+    left: -60%;
+    opacity: 0.5;
   }
 
   100% {
+    top: -160%;
+    left: -95%;
     opacity: 0;
   }
-} */
+}
 
 @keyframes fly {
   0% {
@@ -62,8 +63,65 @@
 }
 
 .fly-item-bg {
-  /* -webkit-animation: fly 5s linear 0s infinite;
-      -moz-animation: fly 5s linear 0s infinite;
-      -0-animation: fly 5s linear 0s infinite; */
   animation: fly 1.5s linear 0s;
+  -webkit-animation: fly 5s linear 0s infinite;
+  -moz-animation: fly 5s linear 0s infinite;
+  -0-animation: fly 5s linear 0s infinite;
+}
+
+
+
+
+
+
+
+/*****************/
+
+@-webkit-keyframes drop {
+  0% {
+    bottom: 0;
+    opacity: 1;
+  }
+
+  50% {
+    width: 50px;
+    height: 50px;
+    bottom: -40%;
+    opacity: 0.5;
+  }
+
+  100% {
+    width: 20px;
+    height: 20px;
+    bottom: -80%;
+    opacity: 0;
+  }
+}
+
+@keyframes moveToBag {
+  0% {
+    bottom: 0;
+    opacity: 1;
+  }
+
+  50% {
+    width: 50px;
+    height: 50px;
+    bottom: -40%;
+    opacity: 0.5;
+  }
+
+  100% {
+    width: 20px;
+    height: 20px;
+    bottom: -80%;
+    opacity: 0;
+  }
+}
+
+.drop-item-basket {
+  -webkit-animation: moveToBag 5s linear 0s infinite;
+  -moz-animation: moveToBag 5s linear 0s infinite;
+  -0-animation: moveToBag 5s linear 0s infinite;
+  animation: moveToBag 1.5s linear 0s;
 }

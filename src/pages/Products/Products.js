@@ -5,7 +5,7 @@ import SpinnerLoading from "../../components/UI/SpinnerLoading/SpinnerLoading";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import MenuNav from "../../components/MenuNav/MenuNav";
 import ProductCards from "../../components/ProductCards/ProductCards";
-// import list_products_json from './src/list-products.json'
+import list_products_json from './src/list-products.json'
 
 
 const Products = (props) => {
@@ -24,8 +24,7 @@ const Products = (props) => {
     /** Products with all details such as categories are received in a file in Json format ***/
     useEffect(() => {
         document.title = process.env.REACT_APP_BASE_TITLE + " | " + props.title;
-        console.log('منو');
-      },[]);
+    }, []);
 
     useEffect(() => {
         setIsLoading(true);
@@ -40,7 +39,13 @@ const Products = (props) => {
                     setProductListState(respData);
                     setIsLoading(false)
                 }, 2000)
-            });
+            })
+            .catch(() => {
+                let fetchedCatList = catListHandler(list_products_json)
+                setCatListState(fetchedCatList)
+                setProductListState(list_products_json);
+                setIsLoading(false)
+            })
         // setTimeout(() => {
         //     let fetchedCatList = catListHandler(list_products_json)
         //     setCatListState(fetchedCatList)

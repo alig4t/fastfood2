@@ -12,7 +12,7 @@ import CartCanvas from '../CartCanvas/CartCanvas';
 import ModalUI from '../UI/Modal/ModalUI';
 import './NavbarSection.css'
 
-import { BsBasketFill } from 'react-icons/bs';
+// import { BsBasketFill } from 'react-icons/bs';
 import { IoCart } from 'react-icons/io5';
 
 
@@ -33,11 +33,6 @@ const NavbarSection = (props) => {
   const closeNavCanvas = () => { setShowNavbarCanvas(false) }
 
 
-
-  useEffect(() => {
-    console.log("NavBar..");
-  },[])
-
   /*********************  Modal Login Form  *********************/
   const [showModalLoginForm, setShowModalLoginForm] = useState(props.modalLogin)
   const openLoginForm = (e) => {
@@ -48,7 +43,6 @@ const NavbarSection = (props) => {
     setShowModalLoginForm(true);
   }
 
-
   /*********************  Counter Basket Effect  *********************/
   const [basketActiveClass, setBasketActiveClass] = useState(false)
   const handleToggleActive = () => {
@@ -58,7 +52,9 @@ const NavbarSection = (props) => {
     }, 1000);
   };
   useEffect(() => {
-    handleToggleActive()
+    if(cartItems.length > 0){
+      handleToggleActive()
+    }
   }, [cartItems])
 
 
@@ -75,7 +71,7 @@ const NavbarSection = (props) => {
 
       <Navbar key={expand} fixed='top' variant="dark" expand={expand} className="mb-3 nav-custom">
         <Container fluid>
-          <Link to="/" className="brand-custom navbar-brand">فست فود اینترنتی</Link>
+          <Link to="/" className="brand-custom navbar-brand" style={{lineHeight:"43px"}}>{process.env.REACT_APP_BASE_TITLE}</Link>
           <div className='d-flex'>
             <Navbar.Toggle onClick={openNavCanvas} aria-controls={`offcanvasNavbar-expand-${expand}`} className="bar-icon-container" />
 
@@ -99,7 +95,7 @@ const NavbarSection = (props) => {
           >
             <Offcanvas.Header closeButton style={{borderBottom : "1px solid #e8e8e8"}}>
               <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`} style={{fontWeight:"bold"}}>
-                فست فود اینترنتی
+              {process.env.REACT_APP_BASE_TITLE}
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>

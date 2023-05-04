@@ -2,7 +2,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../../context/cartContext';
 import ModalUI from '../UI/Modal/ModalUI';
 import PlaceHolderUI from '../UI/PlaceHolderUI/PlaceHolderUI';
-import { TbSquareRoundedPlusFilled } from 'react-icons/tb';
+
+// import { TbSquareRoundedPlusFilled } from 'react-icons/tb';
+import { BsFillBagPlusFill } from 'react-icons/bs';
 import './ProductCards.css'
 
 import AddToCartAnimation from '../UI/Animate/AddToCart/AddToCartAnimation';
@@ -99,23 +101,26 @@ const ProductCards = (props) => {
         } else {
             clearfix = ''
         }
+        let animateShow = index==showAnimate ? true : false;
+        let animateActive = animateShow ? "active" : "";
         return (
             <React.Fragment key={index}>
                 <div className="col-md-3 col-6 p-3">
                     <span id={item.slug}></span>
                     <div className="card shadow custom-card">
-                        <img className="card-img-top position-relative" src={`./assets/img/products/${item.imgPath}`}
-                            alt="Card image cap" onClick={() => productModalHandler(item)} />
-                           <AddToCartAnimation show={index==showAnimate ? true : false} img={`./assets/img/products/${item.imgPath}`} />
+                        <img className="card-img-top position-relative cursor-pointer" src={`./assets/img/products/${item.imgPath}`}
+                            role="button" onClick={() => productModalHandler(item)} />
+                           <AddToCartAnimation show={animateShow} img={`./assets/img/products/${item.imgPath}`} />
                             
                         <div className="card-body text-center">
                             <h5 className="card-title">{item.title}</h5>
 
                             <p className="card-text mb-0"><span>{(item.price * (100 - item.offPercent)) / 100}</span> تومان</p>
                             {item.offPercent > 0 ? <p className="card-text"><span><del>{item.price}</del></span></p> : <p className="card-text"></p>}
-                            <a onClick={() => addToBasket(item, index)}>
-                                <span className="material-icons add-basket-icon">
-                                    <TbSquareRoundedPlusFilled />
+                            <a onClick={() => addToBasket(item, index)} role="button">
+                                <span className={`material-icons add-basket-icon ${animateActive}`}>
+                                    {/* <TbSquareRoundedPlusFilled /> */}
+                                    <BsFillBagPlusFill />
                                 </span>
                             </a>
                         </div>

@@ -5,8 +5,8 @@ const AddToCartAnimation = (props) => {
 
     const ImgStyle = {
         opacity: "0",
-        width: "50px",
-        height: "50px",
+        width: "80px",
+        height: "80px",
         position: "absolute",
         top: 0,
         left: 0,
@@ -18,7 +18,7 @@ const AddToCartAnimation = (props) => {
     let animateElement = ''
     if (props.show) {
         animateElement = (
-            <img src={props.img} className="fly-item-bg" style={ImgStyle} />
+            <img src={props.img} className="drop-item-basket" style={ImgStyle} />
         )
     }
 

@@ -412,7 +412,6 @@ span {
 }
 
 .custom-card {
-  cursor: pointer;
   -webkit-box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.02);
   -moz-box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.02);
   box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.02);

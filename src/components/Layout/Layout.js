@@ -6,11 +6,6 @@ import Footer from "../Footer/Footer"
 import NavbarSection from "../NavbarSection/NavbarSection";
 
 const Layout = (props) => {
-    let cart = [];
-    useEffect(()=>{
-        console.log("App started..");
-    })
-
     return (
         <CartProvider>
             <NavbarSection />

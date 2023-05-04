@@ -28,7 +28,7 @@ const Products = (props) => {
 
     useEffect(() => {
         setIsLoading(true);
-        fetch("https://mocki.io/v1/de9d66b7-9b3a-417b-851c-818712e62d07")
+        fetch("https://mocki.io/v1/2cb291d5-e9a9-4e9e-b4d8-20c73fd35cc6")
             .then((resp) => {
                 return resp.json();
             })

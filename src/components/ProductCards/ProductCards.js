@@ -105,7 +105,7 @@ const ProductCards = (props) => {
         let animateActive = animateShow ? "active" : "";
         return (
             <React.Fragment key={index}>
-                <div className="col-md-3 col-6 p-3">
+                <div className="col-md-3 col-6 py-3 px-sm-3">
                     <span id={item.slug}></span>
                     <div className="card shadow custom-card">
                         <img className="card-img-top position-relative cursor-pointer" src={`./assets/img/products/${item.imgPath}`}

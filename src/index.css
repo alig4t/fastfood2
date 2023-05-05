@@ -18,8 +18,6 @@ code {
   font-weight: 700
 }
 
-
-
 @font-face {
   font-family: 'IRANSans-web';
   src: url('../public/assets/fonts/IRANSansWeb(FaNum)_Bold.eot?#') format('eot'),
@@ -52,7 +50,6 @@ code {
   /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
   font-weight: normal;
 }
-
 
 body {
   direction: rtl;
@@ -103,15 +100,6 @@ span {
   -webkit-font-smoothing: antialiased;
 }
 
-
-.msg-container {
-  /* background-color: black;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 51; */
-}
-
 .nav-section {
   background: rgba(0, 0, 0, 0.75);
   position: absolute;
@@ -136,14 +124,9 @@ span {
   height: 80px;
   background: url('../public/assets/img/logo.png') no-repeat 94%;
   background-size: auto 100%;
-  /* background-position: right; */
-  /* text-align: right; */
 }
 
 #topLogo {
-  /* position: fixed; */
-  /* top: 13px; */
-  /* width: 100px; */
   height: 85px;
   position: relative;
   top: -48px;
@@ -164,27 +147,11 @@ span {
   margin-top: -56px;
 }
 
-.carousel-item img {
-  /* min-height: 500px; */
-}
-
-@media (max-width: 576px) {
-  .carousel-item img {
-    width: auto !important;
-    height: 400px;
-    object-fit: cover;
-  }
-
-
-}
 
 .nav-custom {
   background-color: rgba(0, 0, 0, 0.89);
 }
 
-.navbar-nav{
-  padding-left: 30px;
-}
 .navbar-nav a {
   font-size: 15px;
   position: relative;
@@ -224,32 +191,6 @@ span {
   right: -6px;
   background-color: #fff;
   top: calc(50% - 6px);
-}
-
-@media (max-width: 992px) {
-  .nav-custom li {
-    background-color: rgba(85, 164, 78, 0.645);
-    width: 70%;
-    transition: all ease 0.1s;
-    margin: 5px auto;
-    padding: 8px;
-    border-radius: 4px;
-  }
-
-  .nav-custom li:hover {
-    background-color: rgba(85, 164, 78, 0.914);
-
-  }
-
-  .nav-custom li::before {
-    display: none !important;
-  }
-
-  .nav-custom li::after {
-    display: none !important;
-
-  }
-
 }
 
 .nav-custom li:hover>a {
@@ -426,4 +367,69 @@ span {
   -ms-transition: all .3s;
   -o-transition: all .3s;
   transition: all .3s;
+}
+
+
+@media (min-width: 992px) {
+  .navbar-nav{
+    padding-left: 40px;
+  }
+}
+
+@media (max-width: 300px) {
+  .navbar-brand{
+    margin-right: 0 !important;
+    font-size: 16px;
+  }
+  ul.branches > li{
+    padding: 10px 0;
+  }
+  ul.branches > li .media-body{
+    padding-right: 10px;
+  }
+  .basket-container{
+    padding-left: 0;
+  }
+  .custom-card .card-body{
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+  .offcanvas-body ul.cart-items{
+    padding: 4px;
+  }
+
+}
+
+@media (max-width: 992px) {
+  .nav-custom li {
+    background-color: rgba(85, 164, 78, 0.645);
+    width: 70%;
+    transition: all ease 0.1s;
+    margin: 5px auto;
+    padding: 8px;
+    border-radius: 4px;
+  }
+
+  .nav-custom li:hover {
+    background-color: rgba(85, 164, 78, 0.914);
+
+  }
+
+  .nav-custom li::before {
+    display: none !important;
+  }
+
+  .nav-custom li::after {
+    display: none !important;
+
+  }
+
+}
+
+@media (max-width: 576px) {
+  .carousel-item img {
+    width: auto !important;
+    height: 400px;
+    object-fit: cover;
+  }
 }

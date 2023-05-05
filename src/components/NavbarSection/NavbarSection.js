@@ -75,8 +75,8 @@ const NavbarSection = (props) => {
           <div className='d-flex'>
             <Navbar.Toggle onClick={openNavCanvas} aria-controls={`offcanvasNavbar-expand-${expand}`} className="bar-icon-container" />
 
-            <Button className="d-block d-lg-none btn basket-container border-0 bg-none py-0"
-              type="button" onClick={handleShowCart} style={{ margin: '0 6px' }}>
+            <Button className="d-block d-lg-none btn basket-container border-0 bg-none mx-sm-2"
+              type="button" onClick={handleShowCart}>
               <span className={`sum-basket text-white ${basketActiveClass ? 'active' : ''}`}>{qtyAll}</span>
               <span className="material-icons basket-icon">
                 <IoCart />
@@ -99,7 +99,7 @@ const NavbarSection = (props) => {
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              <Nav className="justify-content-end flex-grow-1 pe-3 ml-4">
+              <Nav className="justify-content-end flex-grow-1 pe-3">
 
                 <Link className="nav-link" to="/Products" onClick={closeNavCanvas}>سفارش اینترنتی غذا</Link>
                 <Link className="nav-link" to="/branches" onClick={closeNavCanvas}>شعبه ها</Link>

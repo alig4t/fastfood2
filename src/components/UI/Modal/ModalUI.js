@@ -44,7 +44,7 @@ const ModalUI = (props) => {
   if (props.modalType == 'food') {
     modalElement = (
       <Modal show={props.show} onHide={props.handleClose}
-        size="lg"
+        size="sm"
         centered
       >
         <Modal.Body className='d-flex justify-content-start p-0'>

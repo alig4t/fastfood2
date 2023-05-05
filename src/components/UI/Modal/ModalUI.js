@@ -30,7 +30,7 @@ const ModalUI = (props) => {
 
 
   /********************* Address  *********************/
-  const [addressInput,setAddressInput]= useState('');
+  const [addressInput, setAddressInput] = useState('');
   const setAddressHandler = (e) => {
     e.preventDefault();
     console.log(addressInput);
@@ -44,24 +44,29 @@ const ModalUI = (props) => {
   if (props.modalType == 'food') {
     modalElement = (
       <Modal show={props.show} onHide={props.handleClose}
-        size="sm"
+      dialogClassName="modal-90w"
         centered
       >
         <Modal.Body className='d-flex justify-content-start p-0'>
           <div className="container-fluid">
-            <div className="row pb-4 pb-lg-0">
-              <div className="col-lg-6 p-0 pt-5 p-lg-0">
+            <div className="row">
+              <div className="col-sm-6 p-0 pt-5 p-sm-0">
                 <img src={`./assets/img/products/${props.item.imgPath}`} className="img-fluid w-100" />
               </div>
-              <div className="col-lg-6 py-3 py-lg-5 px-4">
-                <button type="button" className="btn-close m-0 close-modal-icon" onClick={props.handleClose} style={closeIcon}></button>
-                <h6 className="display-6">{props.item.title}</h6>
-                <span className="d-block my-lg-3">
+              <div className="col-sm-6 px-2 px-md-3 px-lg-4 card-food-detail">
+
+                  <button type="button" className="btn-close m-0 close-modal-icon" onClick={props.handleClose} style={closeIcon}></button>
+   
+                <h6>{props.item.title}</h6>
+                <span className="d-block my-1 my-sm-0 my-md-3">
                   <strong id="popupPrice">{(props.item.price * (100 - props.item.offPercent)) / 100}</strong>
                   تومان
                 </span>
                 <p className="text-justify">{props.item.desc}</p>
-                <button type="button" className="btn btn-danger" onClick={props.handleClose} style={closeBtn}>بستن</button>
+
+      
+                  <button type="button" className="btn btn-danger" onClick={props.handleClose} style={closeBtn}>بستن</button>
+    
               </div>
             </div>
           </div>
@@ -93,7 +98,7 @@ const ModalUI = (props) => {
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-              <Form.Control as="textarea" value={addressInput} onChange={(e)=>setAddressInput(e.target.value)} className="py-2" rows={3} placeholder='آدرس کامل خود را وارد کنید...' />
+              <Form.Control as="textarea" value={addressInput} onChange={(e) => setAddressInput(e.target.value)} className="py-2" rows={3} placeholder='آدرس کامل خود را وارد کنید...' />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>کدپستی (اختیاری)</Form.Label>

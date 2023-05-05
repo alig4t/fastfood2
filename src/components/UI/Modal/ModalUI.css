@@ -7,8 +7,56 @@
     font-size: 13px;
 }
 
-@media (max-width: 992px) {
-    .modal.show .modal-dialog{
-        /* margin: 30px; */
-    }     
+.modal-90w{
+    max-width: 80%;
+    min-width: 80%;
+    margin: auto !important;
+}
+
+.card-food-detail{
+    padding-top: 48px;
+    padding-bottom: 52px;
+}
+
+.card-food-detail h6{
+    font-weight: 400;
+    font-size: calc(1.375rem + 1.5vw);
+    line-height: 1.2;
+}
+
+.close-btn-modal-container{
+    height: 48px;
+}
+
+@media (min-width:1100px)  {
+    .modal-90w{
+        min-width: 800px;
+    }
+}
+
+@media (min-width:576px) and (max-width: 992px) {
+    .card-food-detail{
+        padding-top: 44px;
+        padding-bottom: 45px;
+    }
+    #popupPrice{
+        font-size: 26px;
+    }
+    .card-food-detail p{
+        font-size: 14px;
+    }
+    .card-food-detail h6{
+        font-size: 24px;
+    }    
+}
+
+@media (max-width:576px) {
+    .card-food-detail{
+        padding-top: 14px;
+        padding-bottom: 45px;
+    }
+    .card-food-detail h6{
+        font-size: 34px;
+        font-weight: 500;
+    } 
 }

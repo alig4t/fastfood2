@@ -16,7 +16,7 @@ const Layout = (props) => {
         // console.log(window.location.pathname)
         if (location.pathname == "/cart") {
             setModalLogin(true)
-        }else{
+        } else {
             setModalLogin(false)
         }
     })

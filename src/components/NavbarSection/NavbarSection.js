@@ -46,11 +46,11 @@ const NavbarSection = (props) => {
       setShowModalLoginForm(true);
     }
   }
-  useEffect(()=>{
-      if(props.modalLogin){
-        setShowModalLoginForm(true)
-      }
-  },[props.modalLogin])
+  useEffect(() => {
+    if (props.modalLogin) {
+      setShowModalLoginForm(true)
+    }
+  }, [props.modalLogin])
 
   /*********************  Counter Basket Effect  *********************/
   const [basketActiveClass, setBasketActiveClass] = useState(false)
@@ -137,7 +137,7 @@ const NavbarSection = (props) => {
       </Navbar>
 
       <CartCanvas show={showCart} handleClose={handleCloseCart} />
-      <ModalUI show={showModalLoginForm} modalType="loginform" handleClose={()=>setShowModalLoginForm(false)} />
+      <ModalUI show={showModalLoginForm} modalType="loginform" handleClose={() => setShowModalLoginForm(false)} />
     </>
   );
 }

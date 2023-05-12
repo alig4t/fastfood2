@@ -28,7 +28,7 @@ function LoginForm() {
 
   /*********************  Phone Number Input Handler   *********************/
   const loginHandler = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     if (check_phone(phoneInput)) {
       let randomCode = generate(6);
       console.log(randomCode);

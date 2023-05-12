@@ -1,5 +1,5 @@
 import React,{useEffect} from "react";
-import NavbarSection from "../../components/NavbarSection/NavbarSection";
+// import NavbarSection from "../../components/NavbarSection/NavbarSection";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import Order from "../../components/Order/Order";
 
@@ -9,7 +9,7 @@ const Cart = (props) => {
       },[]);
     return (
     <>
-        <NavbarSection modalLogin={true} />
+        {/* <NavbarSection modalLogin={true} /> */}
         <Breadcrumb title="سفارش غذا" />
         <Order />
     </>

@@ -24,7 +24,7 @@ function LoginForm() {
   /*********************  Focus on input  *********************/
   useEffect(() => {
     phoneRef.current.focus()
-  },)
+  },[])
 
   /*********************  Phone Number Input Handler   *********************/
   const loginHandler = (event) => {

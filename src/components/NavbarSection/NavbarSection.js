@@ -40,8 +40,12 @@ const NavbarSection = (props) => {
     e.preventDefault();
     if (showNavbarCanvas) {
       closeNavCanvas()
+      setTimeout(() => {
+        setShowModalLoginForm(true);
+      }, 500);
+    } else {
+      setShowModalLoginForm(true);
     }
-    setShowModalLoginForm(true);
   }
 
   /*********************  Counter Basket Effect  *********************/

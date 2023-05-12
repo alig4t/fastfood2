@@ -1,4 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
+
+import { SmsCodeContext } from '../../context/smsCodeContext';
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -8,7 +10,8 @@ function LoginForm() {
 
   /*********************  Initial States   *********************/
   const [phoneInput, setPhoneInput] = useState(''); //Mobile number that the user enters
-  const [smsCode, setSmsCode] = useState(); //The code that is sent to confirm the mobile number
+  // const [smsCode, setSmsCode] = useState(); //The code that is sent to confirm the mobile number
+  const [smsCode, setSmsCode] = useContext(SmsCodeContext)
   const [verifyInput, setVerifyInput] = useState(''); //The code that the user sends to confirm the mobile number
 
 
@@ -22,7 +25,6 @@ function LoginForm() {
   useEffect(() => {
     phoneRef.current.focus()
   },)
-
 
   /*********************  Phone Number Input Handler   *********************/
   const loginHandler = (event) => {
@@ -67,8 +69,6 @@ function LoginForm() {
     var result = regex.test(number);
     return result;
   };
-
-
 
   /*********************  Verification Section Element   *********************/
   const verifyElementForm = (

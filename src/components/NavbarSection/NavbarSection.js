@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/cartContext';
 
+
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -52,7 +53,7 @@ const NavbarSection = (props) => {
     }, 1000);
   };
   useEffect(() => {
-    if(cartItems.length > 0){
+    if (cartItems.length > 0) {
       handleToggleActive()
     }
   }, [cartItems])
@@ -71,7 +72,7 @@ const NavbarSection = (props) => {
 
       <Navbar key={expand} fixed='top' variant="dark" expand={expand} className="mb-3 nav-custom">
         <Container fluid>
-          <Link to="/" className="brand-custom navbar-brand" style={{lineHeight:"43px"}}>{process.env.REACT_APP_BASE_TITLE}</Link>
+          <Link to="/" className="brand-custom navbar-brand" style={{ lineHeight: "43px" }}>{process.env.REACT_APP_BASE_TITLE}</Link>
           <div className='d-flex'>
             <Navbar.Toggle onClick={openNavCanvas} aria-controls={`offcanvasNavbar-expand-${expand}`} className="bar-icon-container" />
 
@@ -93,9 +94,9 @@ const NavbarSection = (props) => {
             show={showNavbarCanvas}
             onHide={closeNavCanvas}
           >
-            <Offcanvas.Header closeButton style={{borderBottom : "1px solid #e8e8e8"}}>
-              <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`} style={{fontWeight:"bold"}}>
-              {process.env.REACT_APP_BASE_TITLE}
+            <Offcanvas.Header closeButton style={{ borderBottom: "1px solid #e8e8e8" }}>
+              <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`} style={{ fontWeight: "bold" }}>
+                {process.env.REACT_APP_BASE_TITLE}
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
@@ -106,12 +107,12 @@ const NavbarSection = (props) => {
                 <Link className="nav-link" to="/about" onClick={closeNavCanvas}>درباره ما</Link>
                 <a className="nav-link" onClick={(e) => openLoginForm(e)} style={{ cursor: 'pointer' }}>ورود</a>
 
-                  <div className='d-block d-lg-none text-center mt-5'>
-                 <span className='btn-call'>تماس با پشتیبانی:  9999-021</span>
-                    <div className='clearfix'></div>
-                 <span className='d-block version-type'>نسخه 1.0.5</span>
+                <div className='d-block d-lg-none text-center mt-5'>
+                  <span className='btn-call'>تماس با پشتیبانی:  9999-021</span>
+                  <div className='clearfix'></div>
+                  <span className='d-block version-type'>نسخه 1.0.5</span>
 
-                  </div>
+                </div>
 
                 <Button className="d-none d-lg-block btn basket-container border-0 bg-none py-0"
                   onClick={handleShowCart} style={{ marginLeft: '6px' }}>
@@ -128,9 +129,7 @@ const NavbarSection = (props) => {
       </Navbar>
 
       <CartCanvas show={showCart} handleClose={handleCloseCart} />
-
       <ModalUI show={showModalLoginForm} modalType="loginform" handleClose={() => setShowModalLoginForm(false)} />
-
     </>
   );
 }

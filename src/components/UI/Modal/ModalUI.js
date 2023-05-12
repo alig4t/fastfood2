@@ -41,7 +41,7 @@ const ModalUI = (props) => {
 
   let modalElement = '';
 
-  if (props.modalType == 'food') {
+  if (props.modalType === 'food') {
     modalElement = (
       <Modal show={props.show} onHide={props.handleClose}
       dialogClassName="modal-90w"
@@ -51,7 +51,7 @@ const ModalUI = (props) => {
           <div className="container-fluid">
             <div className="row">
               <div className="col-sm-6 p-0 pt-5 p-sm-0">
-                <img src={`./assets/img/products/${props.item.imgPath}`} className="img-fluid w-100" />
+                <img src={`./assets/img/products/${props.item.imgPath}`} className="img-fluid w-100" alt='' />
               </div>
               <div className="col-sm-6 px-2 px-md-3 px-lg-4 card-food-detail">
 
@@ -74,7 +74,7 @@ const ModalUI = (props) => {
       </Modal>
     )
   }
-  if (props.modalType == 'loginform') {
+  if (props.modalType === 'loginform') {
     modalElement = (
       <Modal show={props.show} onHide={props.handleClose} scrollable={true} size='sm' backdrop="static" keyboard={false}>
         <Modal.Header className='py-2 px-3'>
@@ -88,7 +88,7 @@ const ModalUI = (props) => {
     )
   }
 
-  if (props.modalType == 'address') {
+  if (props.modalType === 'address') {
     modalElement = (
       <Modal show={props.show} onHide={props.handleClose} scrollable={true} size='lg' keyboard={false}>
         <Modal.Header className='py-2 px-3'>

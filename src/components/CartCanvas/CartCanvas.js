@@ -39,7 +39,11 @@ const CartCanvas = (props) => {
       updatedItem.qty = newQty;
       newBasket[index] = updatedItem
     }
+    console.log(newBasket);
     setCartItems(newBasket)
+    if(newBasket.length==0){
+      localStorage.removeItem("cart");
+    }
   }
 
   

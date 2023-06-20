@@ -14,11 +14,11 @@ function App() {
     <BrowserRouter>
       <Layout>
         <Routes>
-          <Route path='/' exact element={<Main />} />
-          <Route path='/products' exact element={<Products title="منو" />} />
-          <Route path='/branches' exact element={<Branches title="شعبه های ما" />} />
-          <Route path='/about' exact element={<AboutUs title="درباره ما" />} />
-          <Route path='/cart' exact element={<Cart title="صورتحساب" />} />
+          <Route path='/' element={<Main />} />
+          <Route path='/products' element={<Products title="منو" />} />
+          <Route path='/branches' element={<Branches title="شعبه های ما" />} />
+          <Route path='/about' element={<AboutUs title="درباره ما" />} />
+          <Route path='/cart' element={<Cart title="صورتحساب" />} />
         </Routes>
       </Layout>
     </BrowserRouter>

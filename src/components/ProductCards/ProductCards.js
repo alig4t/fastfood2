@@ -64,7 +64,6 @@ const ProductCards = (props) => {
         }else{
             setShowAnimate(index);
         }
-
     }
 
 

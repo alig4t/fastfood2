@@ -12,12 +12,12 @@ import CartCanvas from '../CartCanvas/CartCanvas';
 import ModalUI from '../UI/Modal/ModalUI';
 import './NavbarSection.css'
 
+import list_products_json from '../../pages/Products/src/list-products.json'
 // import { BsBasketFill } from 'react-icons/bs';
 import { IoCart } from 'react-icons/io5';
 
 
 const NavbarSection = (props) => {
-
 
   /*********************  Basket Context  *********************/
   const [cartItems, setCartItems] = useContext(CartContext)
@@ -52,7 +52,7 @@ const NavbarSection = (props) => {
     }
   }, [props.modalLogin])
 
-  /*********************  Counter Basket Effect  *********************/
+  /*********************  Counter Basket Effect *********************/
   const [basketActiveClass, setBasketActiveClass] = useState(false)
   const handleToggleActive = () => {
     setBasketActiveClass(true);
@@ -60,11 +60,66 @@ const NavbarSection = (props) => {
       setBasketActiveClass(false)
     }, 1000);
   };
+
+  /*********************  save cart in browser *********************/
   useEffect(() => {
     if (cartItems.length > 0) {
       handleToggleActive()
+      let cartArray = [];
+      cartItems.forEach(element => {
+        let itemObj = {
+          id: element.id,
+          qty: element.qty
+        }
+        cartArray.push(itemObj)
+      });
+      localStorage.removeItem("cart");
+      localStorage.setItem("cart", JSON.stringify(cartArray))
     }
   }, [cartItems])
+
+
+  /*********************  get cart from browser *********************/
+  useEffect(() => {
+    let parseCartArray=[]
+    if(localStorage.getItem("cart")){
+      let cartLocalStorageArray = localStorage.getItem("cart");
+      parseCartArray = JSON.parse(cartLocalStorageArray)
+    }
+
+    if (parseCartArray.length > 0) {
+      fetch("https://mocki.io/v1/2cb291d5-e9a9-4e9e-b4d8-20c73fd35cc6")
+        .then((resp) => {
+          return resp.json();
+        })
+        .then((respData) => {
+          let getBrowserCart = [];
+          parseCartArray.forEach(element => {
+            let elementIndex = respData.findIndex(x => x.id === element.id);
+            let newObj = {
+              ...respData[elementIndex],
+              qty: element.qty
+            }
+            getBrowserCart.push(newObj)
+          });
+          setCartItems(getBrowserCart)
+        })
+        .catch(() => {
+          let getBrowserCart = [];
+          parseCartArray.forEach(element => {
+            let elementIndex = list_products_json.findIndex(x => x.id === element.id);
+            let newObj = {
+              ...list_products_json[elementIndex],
+              qty: element.qty
+            }
+            getBrowserCart.push(newObj)
+          });
+          setCartItems(getBrowserCart)
+        })
+    }
+
+  }, [])
+
 
 
   /********************* Modal Canvas Cart *********************/

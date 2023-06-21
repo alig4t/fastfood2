@@ -107,7 +107,7 @@ const ProductCards = (props) => {
                 <div className="col-md-3 col-6 py-3 px-sm-3">
                     <span id={item.slug}></span>
                     <div className="card shadow custom-card">
-                        <img className="card-img-top position-relative cursor-pointer" src={`./assets/img/products/${item.imgPath}`}
+                        <img className="card-img-top position-relative cursor-pointer" src={process.env.PUBLIC_URL +"./assets/img/products/"+item.imgPath}
                             role="button" onClick={() => productModalHandler(item)} />
                            <AddToCartAnimation show={animateShow} img={`./assets/img/products/${item.imgPath}`} />
                             

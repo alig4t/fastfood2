@@ -277,6 +277,11 @@ span {
   padding: 40px;
 }
 
+.head-products-404 {
+  background: url('../public/assets/img/breadcrumb-bg.jpg');
+  padding: 40px;
+}
+
 .list-menu {
   padding: 5px;
 }

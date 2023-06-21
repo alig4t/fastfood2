@@ -38,7 +38,7 @@ const Products = (props) => {
                     setCatListState(fetchedCatList)
                     setProductListState(respData);
                     setIsLoading(false)
-                }, 2000)
+                }, 1000)
             })
             .catch(() => {
                 let fetchedCatList = catListHandler(list_products_json)

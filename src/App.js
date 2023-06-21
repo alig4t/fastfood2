@@ -7,6 +7,7 @@ import Products from './pages/Products/Products'
 import Branches from './pages/Branches/Branches'
 import AboutUs from './pages/AboutUs/AboutUs'
 import Cart from './pages/Cart/Cart';
+import NotFound from './pages/NotFound/NotFound';
 
 function App() {
   
@@ -19,6 +20,7 @@ function App() {
           <Route path='/branches' element={<Branches title="شعبه های ما" />} />
           <Route path='/about' element={<AboutUs title="درباره ما" />} />
           <Route path='/cart' element={<Cart title="صورتحساب" />} />
+          <Route path='*' element={<NotFound title=""/>} />
         </Routes>
       </Layout>
     </BrowserRouter>

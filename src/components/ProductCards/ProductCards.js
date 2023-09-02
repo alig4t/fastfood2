@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { CartContext } from '../../context/cartContext';
 import ModalUI from '../UI/Modal/ModalUI';
 import PlaceHolderUI from '../UI/PlaceHolderUI/PlaceHolderUI';
@@ -56,12 +57,12 @@ const ProductCards = (props) => {
             })
         }
 
-        if(showAnimate == index){
+        if (showAnimate == index) {
             setShowAnimate(-1);
-            setTimeout(()=>{
+            setTimeout(() => {
                 setShowAnimate(index);
-            },100)
-        }else{
+            }, 100)
+        } else {
             setShowAnimate(index);
         }
     }
@@ -100,17 +101,25 @@ const ProductCards = (props) => {
         } else {
             clearfix = ''
         }
-        let animateShow = index==showAnimate ? true : false;
+        let animateShow = index == showAnimate ? true : false;
         let animateActive = animateShow ? "active" : "";
         return (
             <React.Fragment key={index}>
                 <div className="col-md-3 col-6 py-3 px-sm-3">
                     <span id={item.slug}></span>
                     <div className="card shadow custom-card">
-                        <img className="card-img-top position-relative cursor-pointer" src={process.env.PUBLIC_URL +"./assets/img/products/"+item.imgPath}
-                            role="button" onClick={() => productModalHandler(item)} />
-                           <AddToCartAnimation show={animateShow} img={`./assets/img/products/${item.imgPath}`} />
-                            
+                        {/* <img className="card-img-top position-relative cursor-pointer" src={process.env.PUBLIC_URL + "./assets/img/products/" + item.imgPath}
+                            role="button" onClick={() => productModalHandler(item)} /> */}
+                        <LazyLoadImage
+                            src={process.env.PUBLIC_URL + "./assets/img/products/" + item.imgPath}
+                            className="card-img-top position-relative cursor-pointer"
+                            role="button" onClick={() => productModalHandler(item)}
+                            effect='blur'
+                        />
+
+
+                        <AddToCartAnimation show={animateShow} img={`./assets/img/products/${item.imgPath}`} />
+
                         <div className="card-body text-center">
                             <h5 className="card-title">{item.title}</h5>
 

@@ -8,6 +8,7 @@ import Jumbotron from "../../components/Jumbotron/Jumbotron";
 const Main = () => {
     useEffect(() => {
         document.title = process.env.REACT_APP_BASE_TITLE;
+        window.scrollTo({ top: 0, behavior: 'smooth' })
       },[]);
 
     return (

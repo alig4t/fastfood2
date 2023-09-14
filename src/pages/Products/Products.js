@@ -24,6 +24,7 @@ const Products = (props) => {
     /** Products with all details such as categories are received in a file in Json format ***/
     useEffect(() => {
         document.title = process.env.REACT_APP_BASE_TITLE + " | " + props.title;
+        window.scrollTo({ top: 40, behavior: 'smooth' })
     }, []);
 
     useEffect(() => {
@@ -46,12 +47,6 @@ const Products = (props) => {
                 setProductListState(list_products_json);
                 setIsLoading(false)
             })
-        // setTimeout(() => {
-        //     let fetchedCatList = catListHandler(list_products_json)
-        //     setCatListState(fetchedCatList)
-        //     setProductListState(list_products_json);
-        //     setIsLoading(false)
-        // }, 2000)
     }, [])
 
 
@@ -87,7 +82,6 @@ const Products = (props) => {
             {isLoading ? <SpinnerLoading /> : ''}
             <Breadcrumb title='سفارش اینترنتی غذا' />
             {(catListState.length > 0) ? <MenuNav cats={catListState} /> : ''}
-            {/* {(productListState.length > 0) ? <ProductCards productList={productListState} /> : ''} */}
             <ProductCards productList={productListState} />
         </>
     )

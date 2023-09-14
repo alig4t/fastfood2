@@ -5,6 +5,7 @@ import { SiLinkedin } from 'react-icons/si';
 import { ImGoogle } from 'react-icons/im';
 
 const Footer = () => {
+    
     const socialStyle = {
         color : "#fff",
         fontSize: "18px"
@@ -31,4 +32,4 @@ const Footer = () => {
     )
 }
 
-export default Footer
+export default React.memo(Footer)

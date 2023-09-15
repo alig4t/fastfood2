@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 const Jumbotron = () => {
-    return (
 
+    return (
         <main className="container-fluid">
             <div className="row main-box">
                 

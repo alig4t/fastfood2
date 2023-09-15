@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
 
 import SpinnerLoading from "../../components/UI/SpinnerLoading/SpinnerLoading";
-
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import MenuNav from "../../components/MenuNav/MenuNav";
 import ProductCards from "../../components/ProductCards/ProductCards";
+
 import list_products_json from './src/list-products.json'
 
 
 const Products = (props) => {
-
-    console.log("Products Page Render..");
 
     /*********************  Products and Cateories States  *********************/
     /** They are initially an empty array until the data is received from the server ***/
@@ -41,7 +39,7 @@ const Products = (props) => {
                     setCatListState(fetchedCatList)
                     setProductListState(respData);
                     setIsLoading(false)
-                }, 1000)
+                }, 500)
             })
             .catch(() => {
                 let fetchedCatList = catListHandler(list_products_json)

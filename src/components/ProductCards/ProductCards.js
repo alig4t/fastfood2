@@ -74,7 +74,6 @@ const ProductCards = (props) => {
     /********************* Sort Product by sort Value in Json  *********************/
 
     const sortJsonArray = (jsonArray) => {
-        console.log("sortJsonArray");
         jsonArray.sort(function (a, b) {
             let typeA = a.sort;
             let typeB = b.sort;
@@ -98,7 +97,6 @@ const ProductCards = (props) => {
         let nextKey = 1;
         let clearfix = '';
         return sortedProducts.map((item, index) => {
-            console.log("pro Map");
             nextKey = (index < sortedProducts.length - 1) ? index + 1 : index
             if (item.sort != sortedProducts[nextKey].sort) {
                 clearfix = <div className="clearfix" id={item.slug}></div>

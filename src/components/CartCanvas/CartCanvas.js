@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/cartContext';
 
@@ -10,14 +10,12 @@ import { HiPlusCircle } from 'react-icons/hi';
 
 const CartCanvas = (props) => {
 
-
   /*********************  Basket Context  *********************/
   const [cartItems, setCartItems] = useContext(CartContext)
   let sum = 0;   // The total price of the entire shopping cart
   let qtys = 0;   // The total number of items in the basket
 
   /*********************  Functions of reducing and increasing products  *********************/
-
   /****** To increase one unit ******/
   const plusProduct = (item, index) => {
     const newBasket = [...cartItems];
@@ -39,7 +37,6 @@ const CartCanvas = (props) => {
       updatedItem.qty = newQty;
       newBasket[index] = updatedItem
     }
-    console.log(newBasket);
     setCartItems(newBasket)
     if(newBasket.length==0){
       localStorage.removeItem("cart");
@@ -103,4 +100,4 @@ const CartCanvas = (props) => {
 }
 
 
-export default CartCanvas
+export default React.memo(CartCanvas)

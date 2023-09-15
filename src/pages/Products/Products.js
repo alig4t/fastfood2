@@ -10,6 +10,8 @@ import list_products_json from './src/list-products.json'
 
 const Products = (props) => {
 
+    console.log("Products Page Render..");
+
     /*********************  Products and Cateories States  *********************/
     /** They are initially an empty array until the data is received from the server ***/
     const [productListState, setProductListState] = useState([]);

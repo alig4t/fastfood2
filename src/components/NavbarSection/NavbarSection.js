@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/cartContext';
 
@@ -34,7 +34,14 @@ const NavbarSection = (props) => {
 
 
   /*********************  Modal Login Form  *********************/
-  const [showModalLoginForm, setShowModalLoginForm] = useState(props.modalLogin)
+  /*********************  if in Cart Page, Modal Opens as Default  *********************/  
+  const location = window.location.pathname
+  const [showModalLoginForm, setShowModalLoginForm] = useState(false)
+
+  const handleModalLoginClose = useCallback(() => {
+    setShowModalLoginForm(false)
+  }, [])
+
   const openLoginForm = (e) => {
     e.preventDefault();
     if (showNavbarCanvas) {
@@ -47,10 +54,12 @@ const NavbarSection = (props) => {
     }
   }
   useEffect(() => {
-    if (props.modalLogin) {
+    if (location === '/cart' && showModalLoginForm === false) {
       setShowModalLoginForm(true)
+    }else{
+      setShowModalLoginForm(false)
     }
-  }, [props.modalLogin])
+  },[location])
 
   /*********************  Counter Basket Effect *********************/
   const [basketActiveClass, setBasketActiveClass] = useState(false)
@@ -81,8 +90,8 @@ const NavbarSection = (props) => {
 
   /*********************  get cart from browser *********************/
   useEffect(() => {
-    let parseCartArray=[]
-    if(localStorage.getItem("cart")){
+    let parseCartArray = []
+    if (localStorage.getItem("cart")) {
       let cartLocalStorageArray = localStorage.getItem("cart");
       parseCartArray = JSON.parse(cartLocalStorageArray)
     }
@@ -124,10 +133,10 @@ const NavbarSection = (props) => {
 
   /********************* Modal Canvas Cart *********************/
   const [showCart, setShowCart] = useState(false);
-  const handleCloseCart = () => setShowCart(false);  // Close Cart Modal
   const handleShowCart = () => setShowCart(true);    //  Open Cart Modal
-
-
+  const handleCloseCart = useCallback(() => {  // Close Cart Modal
+    setShowCart(false)
+  }, []);
 
 
   return (
@@ -192,10 +201,10 @@ const NavbarSection = (props) => {
       </Navbar>
 
       <CartCanvas show={showCart} handleClose={handleCloseCart} />
-      <ModalUI show={showModalLoginForm} modalType="loginform" handleClose={() => setShowModalLoginForm(false)} />
+      <ModalUI show={showModalLoginForm} modalType="loginform" handleClose={handleModalLoginClose} />
     </>
   );
 }
 
-export default NavbarSection
+export default React.memo(NavbarSection)
 

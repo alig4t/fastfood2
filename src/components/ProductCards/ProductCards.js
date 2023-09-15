@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { CartContext } from '../../context/cartContext';
 import ModalUI from '../UI/Modal/ModalUI';
@@ -26,6 +26,9 @@ const ProductCards = (props) => {
         setModalDataProduct(item);
         setShowModalProduct(true);
     }
+    const closeModalProduct = useCallback(() => {
+        setShowModalProduct(false)
+    }, [])
 
     /*********************  add Product to Cart Functions  *********************/
     const checkExistProduct = (cartArray, cartItem) => {
@@ -71,6 +74,7 @@ const ProductCards = (props) => {
     /********************* Sort Product by sort Value in Json  *********************/
 
     const sortJsonArray = (jsonArray) => {
+        console.log("sortJsonArray");
         jsonArray.sort(function (a, b) {
             let typeA = a.sort;
             let typeB = b.sort;
@@ -85,59 +89,57 @@ const ProductCards = (props) => {
         return jsonArray
     }
 
-    const sortedProducts = sortJsonArray(props.productList);
-
-
 
     /********************* Product List Elements   *********************/
+    /********************* UseMemo is to prevent temporal re-rendering   *********************/
 
-    let sort = 0;
-    let nextKey = 1;
-    let clearfix = '';
-    const productArray = sortedProducts.map((item, index) => {
-        nextKey = (index < sortedProducts.length - 1) ? index + 1 : index
-        if (item.sort != sortedProducts[nextKey].sort) {
-            clearfix = <div className="clearfix" id={item.slug}></div>
-        } else {
-            clearfix = ''
-        }
-        let animateShow = index == showAnimate ? true : false;
-        let animateActive = animateShow ? "active" : "";
-        return (
-            <React.Fragment key={index}>
-                <div className="col-md-3 col-6 py-3 px-sm-3">
-                    <span id={item.slug}></span>
-                    <div className="card shadow custom-card">
-                        {/* <img className="card-img-top position-relative cursor-pointer" src={process.env.PUBLIC_URL + "./assets/img/products/" + item.imgPath}
-                            role="button" onClick={() => productModalHandler(item)} /> */}
-                        <LazyLoadImage
-                            src={process.env.PUBLIC_URL + "./assets/img/products/" + item.imgPath}
-                            className="card-img-top position-relative cursor-pointer"
-                            role="button" onClick={() => productModalHandler(item)}
-                            effect='blur'
-                        />
+    const ShowProductListMaker = useMemo(() => {
+        const sortedProducts = sortJsonArray(props.productList);
+        let nextKey = 1;
+        let clearfix = '';
+        return sortedProducts.map((item, index) => {
+            console.log("pro Map");
+            nextKey = (index < sortedProducts.length - 1) ? index + 1 : index
+            if (item.sort != sortedProducts[nextKey].sort) {
+                clearfix = <div className="clearfix" id={item.slug}></div>
+            } else {
+                clearfix = ''
+            }
+            let animateShow = index == showAnimate ? true : false;
+            let animateActive = animateShow ? "active" : "";
+            return (
+                <React.Fragment key={index}>
+                    <div className="col-md-3 col-6 py-3 px-sm-3">
+                        <span id={item.slug}></span>
+                        <div className="card shadow custom-card">
 
+                            <LazyLoadImage
+                                src={process.env.PUBLIC_URL + "./assets/img/products/" + item.imgPath}
+                                className="card-img-top position-relative cursor-pointer"
+                                role="button" onClick={() => productModalHandler(item)}
+                                effect='blur'
+                            />
+                            <AddToCartAnimation show={animateShow} img={`./assets/img/products/${item.imgPath}`} />
 
-                        <AddToCartAnimation show={animateShow} img={`./assets/img/products/${item.imgPath}`} />
+                            <div className="card-body text-center">
+                                <h5 className="card-title">{item.title}</h5>
 
-                        <div className="card-body text-center">
-                            <h5 className="card-title">{item.title}</h5>
-
-                            <p className="card-text mb-0"><span>{(item.price * (100 - item.offPercent)) / 100}</span> تومان</p>
-                            {item.offPercent > 0 ? <p className="card-text"><span><del>{item.price}</del></span></p> : <p className="card-text"></p>}
-                            <a onClick={() => addToBasket(item, index)} role="button">
-                                <span className={`material-icons add-basket-icon ${animateActive}`}>
-                                    {/* <TbSquareRoundedPlusFilled /> */}
-                                    <BsFillBagPlusFill />
-                                </span>
-                            </a>
+                                <p className="card-text mb-0"><span>{(item.price * (100 - item.offPercent)) / 100}</span> تومان</p>
+                                {item.offPercent > 0 ? <p className="card-text"><span><del>{item.price}</del></span></p> : <p className="card-text"></p>}
+                                <a onClick={() => addToBasket(item, index)} role="button">
+                                    <span className={`material-icons add-basket-icon ${animateActive}`}>
+                                        <BsFillBagPlusFill />
+                                    </span>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                {clearfix}
-            </React.Fragment>
-        )
-    })
+                    {clearfix}
+                </React.Fragment>
+            )
+        })
+
+    }, [props.productList])
 
     const loadingProducts = (
         <>
@@ -158,10 +160,10 @@ const ProductCards = (props) => {
                 <div className="container">
                     <div className="row p-lg-3">
                         {
-                            (props.productList.length == 0) ? loadingProducts : productArray
+                            (props.productList.length == 0) ? loadingProducts : ShowProductListMaker
 
                         }
-                        <ModalUI show={showModalProduct} modalType="food" item={modalDataProduct} handleClose={() => setShowModalProduct(false)} />
+                        <ModalUI show={showModalProduct} modalType="food" item={modalDataProduct} handleClose={closeModalProduct} />
                     </div>
                 </div>
             </section>

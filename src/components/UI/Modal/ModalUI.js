@@ -24,10 +24,6 @@ const ModalUI = (props) => {
 
 
   /********************* Modal display based on props.show  *********************/
-  const [show, setShow] = useState(props.show);
-  const handleShow = () => setShow(true);
-
-
 
   /********************* Address  *********************/
   const [addressInput, setAddressInput] = useState('');
@@ -119,4 +115,4 @@ const ModalUI = (props) => {
     </>
   );
 }
-export default ModalUI
+export default React.memo(ModalUI)

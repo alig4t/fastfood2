@@ -18,7 +18,6 @@ const ProductCards = (props) => {
     /*********************  Cart Data  *********************/
     const [cartItems, setCartItems] = useContext(CartContext)
 
-
     /*********************  Modal Product  *********************/
     const [showModalProduct, setShowModalProduct] = useState(false)
     const [modalDataProduct, setModalDataProduct] = useState({ imgPath: '', });
@@ -137,7 +136,7 @@ const ProductCards = (props) => {
             )
         })
 
-    }, [props.productList])
+    }, [props.productList,showAnimate])
 
     const loadingProducts = (
         <>

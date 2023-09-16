@@ -2,7 +2,7 @@ import React from "react"
 import "./AddToCartAnimation.css"
 
 const AddToCartAnimation = (props) => {
-
+    
     const ImgStyle = {
         opacity: "0",
         width: "80px",

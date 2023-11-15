@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { CartContext } from '../../context/cartContext';
+import { CartContext } from '../../context/CartContext';
 import ModalUI from '../UI/Modal/ModalUI';
 import PlaceHolderUI from '../UI/PlaceHolderUI/PlaceHolderUI';
 

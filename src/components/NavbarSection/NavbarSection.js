@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../../context/cartContext';
+import { CartContext } from '../../context/CartContext';
 
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -9,15 +9,28 @@ import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
 import CartCanvas from '../CartCanvas/CartCanvas';
-import ModalUI from '../UI/Modal/ModalUI';
+
 import './NavbarSection.css'
 
 import list_products_json from '../../pages/Products/src/list-products.json'
 // import { BsBasketFill } from 'react-icons/bs';
 import { IoCart } from 'react-icons/io5';
+import { AuthContext } from '../../context/AuthContext';
+import LoginForm from '../LoginForm/LoginForm';
+import { SmsCodeContext } from '../../context/SmsCodeContext';
 
 
-const NavbarSection = (props) => {
+const NavbarSection = () => {
+
+  const [AuthStatus, setIsLogin, LogOut] = useContext(AuthContext)
+  const [,,clearCode]= useContext(SmsCodeContext)
+
+
+  const LogOutHandler = () => {
+    LogOut();
+    clearCode();
+    closeNavCanvas()
+  }
 
   /*********************  Basket Context  *********************/
   const [cartItems, setCartItems] = useContext(CartContext)
@@ -34,7 +47,7 @@ const NavbarSection = (props) => {
 
 
   /*********************  Modal Login Form  *********************/
-  /*********************  if in Cart Page, Modal Opens as Default  *********************/  
+  /*********************  if in Cart Page, Modal Opens as Default  *********************/
   const location = window.location.pathname
   const [showModalLoginForm, setShowModalLoginForm] = useState(false)
 
@@ -54,12 +67,10 @@ const NavbarSection = (props) => {
     }
   }
   useEffect(() => {
-    if (location === '/cart' && showModalLoginForm === false) {
-      setShowModalLoginForm(true)
-    }else{
-      setShowModalLoginForm(false)
-    }
-  },[location])
+      if (location === '/cart' && AuthStatus==false) {
+        setShowModalLoginForm(true)
+      }
+  }, [location])
 
   /*********************  Counter Basket Effect *********************/
   const [basketActiveClass, setBasketActiveClass] = useState(false)
@@ -177,7 +188,17 @@ const NavbarSection = (props) => {
                 <Link className="nav-link" to="/Products" onClick={closeNavCanvas}>سفارش اینترنتی غذا</Link>
                 <Link className="nav-link" to="/branches" onClick={closeNavCanvas}>شعبه ها</Link>
                 <Link className="nav-link" to="/about" onClick={closeNavCanvas}>درباره ما</Link>
-                <a className="nav-link" onClick={(e) => openLoginForm(e)} style={{ cursor: 'pointer' }}>ورود</a>
+
+
+                {
+                  AuthStatus ? <>
+                    <Link className="nav-link" to="/account" onClick={closeNavCanvas}>حساب من</Link>
+                    <Link className="nav-link" onClick={LogOutHandler}>خروج</Link>
+                  </>
+                    : <a className="nav-link" onClick={(e) => openLoginForm(e)} style={{ cursor: 'pointer' }}>ورود</a>
+                }
+
+                {/* <a className="nav-link" onClick={(e) => openLoginForm(e)} style={{ cursor: 'pointer' }}>ورود</a> */}
 
                 <div className='d-block d-lg-none text-center mt-5'>
                   <span className='btn-call'>تماس با پشتیبانی:  9999-021</span>
@@ -201,7 +222,8 @@ const NavbarSection = (props) => {
       </Navbar>
 
       <CartCanvas show={showCart} handleClose={handleCloseCart} />
-      <ModalUI show={showModalLoginForm} modalType="loginform" handleClose={handleModalLoginClose} />
+      {/* <ModalUI show={showModalLoginForm} modalType="loginform" handleClose={handleModalLoginClose} /> */}
+      <LoginForm show={showModalLoginForm} handleClose={handleModalLoginClose} />
     </>
   );
 }

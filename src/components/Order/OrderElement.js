@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
@@ -6,17 +6,26 @@ import "./OrderElement.css"
 
 const OrderElement = (props) => {
 
+    const [addressChecked, setAddressChecked] = useState(0)
+
+    const checkAddressHanlder = (index) => {
+        setAddressChecked(index)
+    }
+    const delAddressHandler = (index) => {
+        props.delAddress(index)
+    }
+
     /*********************  User Addresses List Element  *********************/
-    const userAddresses = props.userAddresses.map((adr, index) => {
+    const userAddresses = props.userAddresses.map((item,index) => {
         return (
-            <div class="mb-2 font-sm form-check form-check-reverse address-item">
-                <input name="group1" checked={index==0?true:false} type="radio" id={`reverse-radio-${index+1}`} class="form-check-input"  />
-                    <label title="" for={`reverse-radio-${index+1}`} class="form-check-label">{adr}</label>
-                    <span className="float-start address-delete-btn" onClick={()=>props.delAddress(index)}>حذف</span>
+            <div className="mb-2 font-sm form-check form-check-reverse address-item" key={item.id}>
+                <input name="group1" checked={index == addressChecked ? true : false} onChange={() => checkAddressHanlder(index)} type="radio" id={`reverse-radio-${index + 1}`} className="form-check-input" />
+                <label title="" htmlFor={`reverse-radio-${index + 1}`} className="form-check-label">{item.address}</label>
+                <span className="float-start address-delete-btn" onClick={() => delAddressHandler(item.id)}>حذف</span>
             </div>
         )
     })
-   
+
 
     return (
         <section className="container py-4">
@@ -91,27 +100,27 @@ const OrderElement = (props) => {
                             کد تخفیف
                         </div>
                         <div className="col-lg-9">
-                            
-
-                                <Row className="align-items-center">
-                                    <Col sm={4} xs={8} className="my-1">
-                                        <Form.Label htmlFor="inlineFormInputName" visuallyHidden>
-                                            Name
-                                        </Form.Label>
-                                        <Form.Control id="inlineFormInputName" className="form-control-cart-custom m-0" size="sm" />
-                                    </Col>
-                                    <Col xs={4} className="my-1">
-                                        <button className="btn cart-update-btn px-4 py-2 text-white text-center rounded-pill shadow-sm m-0">ثبت کد</button>
-                                    </Col>
-                                    <p className="w-100 mt-3" style={{ fontSize: "14px" }}>لطفا توجه داشته باشید کد تخفیف قابل استفاده بر روی پیشنهادهای هفتگی نمی باشد.</p>
-
-                                </Row>
 
 
-                                <div className="col-lg-12 px-4 py-2">
-                                </div>
+                            <Row className="align-items-center">
+                                <Col sm={4} xs={8} className="my-1">
+                                    <Form.Label htmlFor="inlineFormInputName" visuallyHidden>
+                                        Name
+                                    </Form.Label>
+                                    <Form.Control id="inlineFormInputName" className="form-control-cart-custom m-0" size="sm" />
+                                </Col>
+                                <Col xs={4} className="my-1">
+                                    <button className="btn cart-update-btn px-4 py-2 text-white text-center rounded-pill shadow-sm m-0">ثبت کد</button>
+                                </Col>
+                                <p className="w-100 mt-3" style={{ fontSize: "14px" }}>لطفا توجه داشته باشید کد تخفیف قابل استفاده بر روی پیشنهادهای هفتگی نمی باشد.</p>
 
-                            
+                            </Row>
+
+
+                            <div className="col-lg-12 px-4 py-2">
+                            </div>
+
+
                         </div>
                     </div>
 

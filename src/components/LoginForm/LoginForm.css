@@ -3,4 +3,28 @@
     color: rgb(220, 64, 64);
     font-size: 14px;
     font-weight: 900;
+    height: 20px;
+    padding-top: 8px;
+}
+
+
+.spinner-box{
+    width: 100%;
+    /* background-color: burlywood; */
+    padding: 10px 0;
+    text-align: center;
+}
+
+.spinner-border.inline{
+    position: relative !important;
+    z-index: 500;
+}
+
+.timer-ff{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    color: rgb(152, 43, 19);
+    font-weight: 100 !important;
+    font-size: 14px;
 }

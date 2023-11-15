@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../../context/cartContext';
+import { CartContext } from '../../context/CartContext';
 
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import './CartCanvas.css'

@@ -78,7 +78,7 @@ const ModalUI = (props) => {
           <button type="button" className="btn-close m-0" onClick={props.handleClose} aria-label="Close"></button>
         </Modal.Header>
         <Modal.Body>
-          <LoginForm />
+          <LoginForm close={props.handleClose} />
         </Modal.Body>
       </Modal>
     )

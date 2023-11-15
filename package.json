@@ -9,6 +9,7 @@
     "bootstrap": "^5.2.3",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",
+    "react-countdown": "^2.3.5",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "react-lazy-load-image-component": "^1.6.0",
@@ -16,6 +17,7 @@
     "react-owl-carousel-rtl": "^1.0.0",
     "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
+    "react-transition-group": "^4.4.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

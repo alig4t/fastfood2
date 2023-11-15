@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
 
-import { CartContext } from "../../context/cartContext";
+import { CartContext } from "../../context/CartContext";
 import ModalUI from "../UI/Modal/ModalUI"
 import OrderElement from "./OrderElement";
 import SpinnerLoading from "../UI/SpinnerLoading/SpinnerLoading";
@@ -14,9 +14,9 @@ const Order = () => {
     /*********************  Initial States  *********************/
     const [isLoading, setIsLoading] = useState(true);
     const [cartFactor, setCartFactor] = useState({ "sum": 0, "discount": 0, "tax": 0, "finalPrice": 0 });
-    const [userAddresses, setUserAddresses] = useState([])
+    const [userAddresses, setUserAddresses] = useState([{}])
     const [modalAddress, setModalAddress] = useState(false)
-    
+
     /*********************  Calculate Factor using Cart Context  *********************/
     useEffect(() => {
         let sum = 0;
@@ -39,6 +39,12 @@ const Order = () => {
     }, [cartItems])
 
     /*********************  User Addresses  *********************/
+
+    useEffect(() => {
+        let listOfAddress = [{ id: 254, address: 'شهرک غرب خ دوم پلاک 4' }]
+        setUserAddresses(listOfAddress)
+    }, [])
+
     const setUserAddressHandler = (newAddress) => {
         let addr = [...userAddresses];
         addr.unshift(newAddress);

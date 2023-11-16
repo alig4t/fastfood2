@@ -5,7 +5,6 @@ export const SmsCodeContext = createContext()
 
 export const SmsCodeProvider = (props) => {
 
-    console.log("SmsCodeProvider");
     const [smsCode, setSmsCode] = useState('');
 
     /*********************  Generate a 6-digit random number  *********************/
@@ -21,7 +20,6 @@ export const SmsCodeProvider = (props) => {
     }
 
     const defineCode = () => {
-        console.log(process.env.REACT_APP_SMS_TIMER_LIMIT);
         let randomCode = generate(6);
         setSmsCode(randomCode)
         console.log(randomCode);

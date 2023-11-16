@@ -23,7 +23,7 @@ import { SmsCodeContext } from '../../context/SmsCodeContext';
 const NavbarSection = () => {
 
   const [AuthStatus, setIsLogin, LogOut] = useContext(AuthContext)
-  const [,,clearCode]= useContext(SmsCodeContext)
+  const [, , clearCode] = useContext(SmsCodeContext)
 
 
   const LogOutHandler = () => {
@@ -67,9 +67,9 @@ const NavbarSection = () => {
     }
   }
   useEffect(() => {
-      if (location === '/cart' && AuthStatus==false) {
-        setShowModalLoginForm(true)
-      }
+    if (location === '/cart' && AuthStatus === false) {
+      setShowModalLoginForm(true)
+    }
   }, [location])
 
   /*********************  Counter Basket Effect *********************/
@@ -222,7 +222,6 @@ const NavbarSection = () => {
       </Navbar>
 
       <CartCanvas show={showCart} handleClose={handleCloseCart} />
-      {/* <ModalUI show={showModalLoginForm} modalType="loginform" handleClose={handleModalLoginClose} /> */}
       <LoginForm show={showModalLoginForm} handleClose={handleModalLoginClose} />
     </>
   );

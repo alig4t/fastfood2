@@ -7,8 +7,6 @@ export const AuthContext = createContext();
 export const AuthProvider = (props) => {
 
 
-    console.log("AuthProvider");
-
     const [isLogin, setIsLogin] = useState(false);
 
     useEffect(() => {

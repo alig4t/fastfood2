@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect, useContext, useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 
 import { Button, Form, Modal } from 'react-bootstrap';
@@ -166,4 +165,4 @@ function LoginForm(props) {
   );
 }
 
-export default LoginForm
+export default React.memo(LoginForm)
